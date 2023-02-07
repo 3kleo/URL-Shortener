@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} very short links {% endblock %}
+{% block content %}
+
+    <div id="myDiv">
+        <h1>Ooops, that link doesnt exist!</h1>
+    </div>
+
+{% endblock %}
+
+{% block customScript %}
+
+<style>
+
+    #myDiv {
+        width: 30%;
+        margin:0 auto; 
+        padding:10px; 
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 767px) {
+      #myDiv {
+        width: 50%;
+      }
+    }
+
+</style>
+
+{% endblock %}

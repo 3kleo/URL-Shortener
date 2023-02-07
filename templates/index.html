@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %} very short links {% endblock %}
+{% block content %}
+    <div id="myDiv" style="margin:0 auto; padding:10px; text-align: center;">
+        <h1 id="header">Put the long link below</h1>
+        <br>
+        <form action="#" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <input type="text" id="fname" name="long_url" required>
+            <br>
+            <button name="submit" type="submit"> Shrink!</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block customScript %}
+
+<style>
+    #myDiv {
+      width:30%;
+    }
+
+
+    @media only screen and (max-width: 767px) {
+      #myDiv {
+        width: 50%;
+      }
+
+      h1 {
+        font-size: 170%;
+      }
+    }
+</style>
+
+{% endblock %}

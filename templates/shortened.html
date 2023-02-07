@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %} very short links {% endblock %}
+{% block content %}
+
+    <div id="myDiv" style="margin:0 auto; padding:10px; text-align: center;">
+        <h1>Your shortened URL is:</h1>
+        <br>
+<!--        <a>http://3kleo.pythonanywhere.com/{{ str_new_url }}</a>-->
+        <h2 style="display: flex; align-items: center; justify-content: center;">
+            <b><a href="{{ app_url }}{{ str_new_url }}">{{ app_url }}{{ str_new_url }}</a></b>
+        </h2>
+
+        <button id="copyButton" onclick="copyToClipboard('{{ app_url }}'+str_new_url); showNotification();">Copy link</button>
+    </div>
+
+    <div id= "copy_notification" class="hidden">
+
+      <h4>Link copied!</h4>
+
+    </div>
+{% endblock %}
+
+{% block customScript %}
+
+<script>var str_new_url = "{{ str_new_url }}"; </script>
+<script src="{{url_for('static', filename='function.js')}}"></script>
+
+
+<style>
+
+    #myDiv {
+        width: 30%;
+
+    }
+
+    div#copy_notification {
+      background-color: darkgreen;
+      width: 8%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: auto;
+      color: white;
+      transition: all .3s ease;
+    }
+    
+    .visible {
+      visibility: visible;
+      opacity: 1;
+      max-height: 1000px;
+    }
+    
+    .hidden {
+      visibility: hidden;
+      opacity: 0;
+      max-height: 0;
+      transition: all .3s ease;
+    }
+    @media only screen and (max-width: 767px) {
+      #myDiv {
+        width: 50%;
+      }
+
+      #myDiv a {
+        font-size: 60%;
+      }
+
+      h1 {
+        font-size: 170%;
+      }
+
+      h2 {
+        font-size: 170%;
+      }
+
+      div#copy_notification {
+        background-color: darkgreen;
+        width: 45%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: auto;
+        color: white;
+        transition: all .3s ease;
+        }
+    }
+</style>
+
+{% endblock %}
